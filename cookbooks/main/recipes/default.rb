@@ -28,7 +28,7 @@ end
 
 execute "export-nuke_merb" do
   command %Q{
-    echo "alias nuke_merb=\"ps auxww | grep \\\"merb\\\" | grep -v \\\"grep\\\" | awk '{print \\\$2}' | xargs kill -9\"" > ~/.bashrc
+    echo "alias nuke_merb=\"ps auxww | grep \\\"merb\\\" | grep -v \\\"grep\\\" | awk '{print \\$2}' | xargs kill -9\"" > ~/.bashrc
   }
   not_if "cat ~/.bashrc | grep 'nuke_merb'"
 end
