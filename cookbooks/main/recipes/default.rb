@@ -27,5 +27,5 @@ execute "install-fastthread-1.0.1" do
 end
 
 require_recipe "mbari-ruby"
-require_recipe "haproxy"
 require_recipe "monit"
+require_recipe "haproxy"
