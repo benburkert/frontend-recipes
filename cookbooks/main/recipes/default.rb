@@ -26,13 +26,6 @@ execute "install-fastthread-1.0.1" do
   }
 end
 
-execute "export-nuke_merb" do
-  command %Q{
-    echo "alias nuke_merb=\"ps auxww | grep \\\"merb\\\" | grep -v \\\"grep\\\" | awk '{print \\$2}' | xargs kill -9\"" > ~/.bashrc
-  }
-  not_if "cat ~/.bashrc | grep 'nuke_merb'"
-end
-
 require_recipe "mbari-ruby"
 require_recipe "haproxy"
 require_recipe "monit"
