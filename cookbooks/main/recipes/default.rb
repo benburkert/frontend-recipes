@@ -12,20 +12,6 @@ execute 'stop-mysql' do
   not_if "ps ax | grep mysqld | grep -v grep"
 end
 
-execute "uninstall-all-fastthreads" do
-  command %Q{
-    gem uninstall fastthread -f
-  }
-
-  not_if "gem list fastthread | grep 'fastthread'"
-end
-
-execute "install-fastthread-1.0.1" do
-  command %Q{
-    gem install fastthread --version=1.0.1
-  }
-end
-
 require_recipe "mbari-ruby"
 require_recipe "monit"
 require_recipe "haproxy"
