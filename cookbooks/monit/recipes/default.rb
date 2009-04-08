@@ -25,8 +25,17 @@ remote_file "/etc/monit.d/mashtags.script.monitrc" do
   mode 0644
 end
 
+template "/etc/monitrc" do
+  owner 'root'
+  group 'root'
+  mode 0700
+  source "monitrc.erb"
+  variables(node[:monit])
+end
+
 execute "reload-monit" do
   command %Q{
     /usr/bin/monit reload
+    /usr/bin/monit quit
   }
 end

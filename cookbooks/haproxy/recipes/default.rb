@@ -23,11 +23,10 @@ execute 'add-haproxy-to-default-run-level' do
   not_if 'rc-status | grep haproxy'
 end
 
-execute 'ensure-haproxy-is-running' do
+execute 'restart-haproxy' do
   command %Q{
     /etc/init.d/haproxy restart
   }
-  not_if "/etc/init.d/haproxy status | grep 'status:  started'"
 end
 
 remote_file "/etc/nginx/servers/mashtags.conf" do

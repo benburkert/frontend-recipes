@@ -3,7 +3,6 @@
 # Recipe:: default
 #
 
-
 directory "/etc/portage/package.keywords" do
   owner 'root'
   group 'root'

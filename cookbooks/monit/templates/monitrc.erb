@@ -1,0 +1,10 @@
+set daemon  30
+set logfile syslog facility log_daemon 
+set mailserver smtp.engineyard.com
+set mail-format {from:info@engineyard.com}
+set alert ben@benburkert.com only on { timeout, nonexist }
+set httpd port 9111
+    allow localhost
+    # This is to keep monit from complaining, port 9111 isn't open to the world
+    allow <%= @user %>:<%= @password %>
+include /etc/monit.d/*.monitrc
