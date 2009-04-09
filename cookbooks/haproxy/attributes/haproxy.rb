@@ -5,4 +5,4 @@ haproxy[:password]    = @attribute[:users].first[:password]
 haproxy[:application] = @attribute[:applications].keys.first
 
 haproxy[:upstream_port] = 5000
-haproxy[:ports]         = 5001..5005
+haproxy[:ports]         = 5001..5010
