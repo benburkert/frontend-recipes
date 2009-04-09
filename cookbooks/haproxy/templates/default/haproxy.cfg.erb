@@ -24,3 +24,6 @@ defaults
   <% for port in @ports %>
     server <%= @application %>_<%= port %> 127.0.0.1:<%= port %> weight 1 maxconn 1 check
   <% end %>
+
+errorloc 500 500.html
+errorloc 503 503.html
